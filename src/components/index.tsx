@@ -4,5 +4,6 @@ import VideoView from "./VideoView";
 import Profile from "./Profile";
 import Main from "./Main";
 import Loader from "./Loader";
+import SideInfo from "./SideInfo";
 
-export { Navbar, Sidebar, VideoView, Profile, Main, Loader };
+export { Navbar, Sidebar, VideoView, Profile, Main, Loader, SideInfo };

@@ -1,9 +1,3 @@
-export interface ProductPros {
-  isSidebarOpen: boolean;
-  isLoading: boolean;
-  isError: boolean;
-}
-
 export type FetchProps = {
   endpoint?: string;
   key?: string;
@@ -68,4 +62,11 @@ export interface IIProps {
   user: UserProfile;
   company: CompanyProps;
   businessModels: IProps[];
+}
+
+export interface ProductPros {
+  isSidebarOpen: boolean;
+  isLoading: boolean;
+  isError: boolean;
+  userProfile: UserProfile;
 }

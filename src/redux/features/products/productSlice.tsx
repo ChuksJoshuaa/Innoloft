@@ -4,6 +4,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   isSidebarOpen: true,
+  userProfile: {},
 };
 
 export const productSlice = createSlice({
@@ -21,9 +22,14 @@ export const productSlice = createSlice({
     openSidebar: (state, action) => {
       state.isSidebarOpen = action.payload;
     },
+
+    setUserProfile: (state, action) => {
+      state.userProfile = action.payload;
+    },
   },
 });
 
-export const { setLoader, setError, openSidebar } = productSlice.actions;
+export const { setLoader, setError, openSidebar, setUserProfile } =
+  productSlice.actions;
 
 export default productSlice.reducer;
