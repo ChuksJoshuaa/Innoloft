@@ -49,7 +49,7 @@ function App() {
           <Loader />
         </>
       ) : (
-        <div>
+        <div className="bg-[#F9FAFB]">
           <Navbar />
           <ToastContainer />
           <Routes>

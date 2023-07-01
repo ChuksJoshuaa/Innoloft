@@ -5,23 +5,19 @@ const MainPage = () => {
   const { isSidebarOpen } = useAppSelector((state) => state.product);
 
   return (
-    <div>
+    <div style={{ maxWidth: "1700px", margin: "0 auto", width: "90%" }}>
       <div>
         {isSidebarOpen ? (
-          <div className="w-72 fixed bg-white border-2 border-gray-100 h-screen">
+          <div className="w-72 fixed h-screen">
             <Sidebar />
           </div>
         ) : (
-          <div className="w-0 fixed border-2 border-gray-100 h-screen">
+          <div className="w-0 fixed h-screen">
             <Sidebar />
           </div>
         )}
-        <div
-          className={`bg-main-bg min-h-screen ${
-            isSidebarOpen ? "ml-72" : "flex-2"
-          }`}
-        >
-          <div className="fixed h-screen bg-main-bg dark:bg-main-dark-bg w-full">
+        <div className={`min-h-screen ${isSidebarOpen ? "ml-72" : "flex-2"}`}>
+          <div className="fixed h-screen w-full">
             <Main />
           </div>
         </div>

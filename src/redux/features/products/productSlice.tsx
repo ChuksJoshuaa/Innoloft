@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ProductProps, UserProfile } from "../../../interface";
 
-const initialState = {
+const initialState: ProductProps = {
   isLoading: false,
   isError: false,
   isSidebarOpen: true,
-  userProfile: {},
+  userProfile: {} as UserProfile,
 };
 
 export const productSlice = createSlice({

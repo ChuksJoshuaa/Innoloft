@@ -64,7 +64,7 @@ export interface IIProps {
   businessModels: IProps[];
 }
 
-export interface ProductPros {
+export interface ProductProps {
   isSidebarOpen: boolean;
   isLoading: boolean;
   isError: boolean;

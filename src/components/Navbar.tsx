@@ -1,18 +1,53 @@
+import { NavProfile } from ".";
 import { APP_ID } from "../actionTypes";
 import useFetch from "../api";
+import innosoftSvg from "../assets/innosoft.svg";
+import searchSvg from "../assets/search.svg";
 
 const Navbar = () => {
   const { configObj } = useFetch("configuration", APP_ID);
 
   return (
     <div
-      className="w-full h-[55px]"
+      className="w-full h-[55px] relative"
       style={{
         background: `${
-          Object.keys(configObj).length > 0 ? configObj.mainColor : "#272e71"
+          Object.keys(configObj)?.length > 0 ? configObj?.mainColor : "#272e71"
         }`,
+        fontFamily: "Open Sans",
       }}
-    ></div>
+    >
+      <div
+        className="flex flex-row justify-start items-center"
+        style={{ maxWidth: "1700px", margin: "0 auto", width: "90%" }}
+      >
+        <div className="w-72 h-[55px]">
+          <img
+            src={innosoftSvg}
+            alt="innoloft-logo"
+            className="ml-5 w-[140px] h-[26.286px] mt-3"
+          />
+        </div>
+        <div className="ml-36 flex justify-between items-center w-full">
+          <div className="relative">
+            <input
+              placeholder="Enter interest, keyword, company name, etc."
+              className="w-[500px] h-[27px] rounded-[4px] bg-white outline-none px-3"
+            />
+            <div className="absolute top-[50%] right-[10px] translate-y-[-50%]">
+              <img
+                src={searchSvg}
+                alt="search"
+                className=" h-4 w-4 text-[#222]"
+              />
+            </div>
+          </div>
+          <div>
+            <NavProfile />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
