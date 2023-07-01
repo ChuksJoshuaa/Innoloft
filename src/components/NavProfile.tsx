@@ -1,10 +1,15 @@
 import messengerSvg from "../assets/messenger.svg";
 import notificationSvg from "../assets/notification.svg";
 import arrowDownSvg from "../assets/arrowDownWhite.svg";
-import { useAppSelector } from "../redux/hooks";
+import { PRODUCT_ID } from "../actionTypes";
+import useFetch from "../api";
+import { UserProfile } from "../interface";
 
 const NavProfile = () => {
-  const { userProfile } = useAppSelector((state) => state.product);
+  const { productData } = useFetch("product", PRODUCT_ID);
+
+  const user = productData?.user as UserProfile;
+
   return (
     <div className="flex justify-start items-center">
       <div>
@@ -33,7 +38,7 @@ const NavProfile = () => {
       </div>
       <div className="flex justify-start items-center mx-3">
         <img
-          src={userProfile?.profilePicture}
+          src={user?.profilePicture}
           alt="profile-image"
           className="w-[25px] h-[25px] rounded-full"
         />

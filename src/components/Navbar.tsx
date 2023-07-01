@@ -31,7 +31,7 @@ const Navbar = () => {
           />
         </div>
         <div
-          className={`ml-20 md:ml-36 flex justify-between items-center w-full ${
+          className={`ml-20 md:ml-30 flex justify-between items-center w-full ${
             isSidebarOpen ? "block" : "hidden"
           }`}
         >

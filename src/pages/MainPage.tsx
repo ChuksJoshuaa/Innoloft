@@ -8,16 +8,23 @@ const MainPage = () => {
     <div style={{ maxWidth: "1700px", margin: "0 auto", width: "90%" }}>
       <div>
         {isSidebarOpen ? (
-          <div className="w-72 fixed h-screen">
+          <div className="w-72">
             <Sidebar />
           </div>
         ) : (
-          <div className="w-0 fixed h-screen">
+          <div className="w-0">
             <Sidebar />
           </div>
         )}
-        <div className={`min-h-screen ${isSidebarOpen ? "ml-72" : "flex-2"}`}>
-          <div className="fixed h-screen w-full">
+        <div
+          className={`mt-[-12em] min-h-screen ${
+            isSidebarOpen ? "ml-72" : "flex-2"
+          }`}
+        >
+          <div
+            className="h-screen"
+            style={{ maxWidth: "1490px", margin: "0 auto", width: "100%" }}
+          >
             <Main />
           </div>
         </div>

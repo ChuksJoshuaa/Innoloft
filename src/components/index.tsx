@@ -6,6 +6,8 @@ import Main from "./Main";
 import Loader from "./Loader";
 import SideInfo from "./SideInfo";
 import NavProfile from "./NavProfile";
+import Header from "./Header";
+import HeroSection from "./HeroSection";
 
 export {
   Navbar,
@@ -16,4 +18,6 @@ export {
   Loader,
   SideInfo,
   NavProfile,
+  Header,
+  HeroSection,
 };
