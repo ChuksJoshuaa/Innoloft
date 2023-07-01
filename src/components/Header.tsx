@@ -24,7 +24,7 @@ const Header = ({ type, text }: { type: string; text: string }) => {
               </h3>
             </div>
           </>
-        ) : (
+        ) : type === "single" ? (
           <>
             <div className="flex justify-between items-center">
               <div className="flex justify-start items-center">
@@ -57,12 +57,24 @@ const Header = ({ type, text }: { type: string; text: string }) => {
                   (window.location.href = `/product/edit/${PRODUCT_ID}`)
                 }
               >
-                <h3 className="text-white text-[14px] leading-[24px] font-normal">
+                <h3 className="text-white text-[14px] leading-[24px] font-normal px-3">
                   Edit
                 </h3>
               </div>
             </div>
           </>
+        ) : (
+          <div className="flex justify-between items-center">
+            <h3>Offer title</h3>
+            <div
+              className="rounded-[6px] bg-[#272E71] py-[5px] px-[10px] gap-[5px] flex items-center"
+              onClick={() => (window.location.href = `/product/${PRODUCT_ID}`)}
+            >
+              <h3 className="text-white text-[14px] leading-[24px] font-normal">
+                View offer
+              </h3>
+            </div>
+          </div>
         )}
       </div>
     </div>

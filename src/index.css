@@ -59,7 +59,7 @@ code {
 
 @media screen and (max-width: 950px){
 	.map-container {
-		width: 60%;
+		width: 100%;
 	}
 }
 
@@ -67,10 +67,6 @@ code {
 	.profile-container {
 		flex-direction: column;
 		align-items: flex-start;
-	}
-
-	.map-container {
-		width: 100%;
 	}
 }
 

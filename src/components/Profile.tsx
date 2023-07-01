@@ -1,16 +1,10 @@
 import { APP_ID } from "../actionTypes";
 import useFetch from "../api";
-import { CompanyProps, UserProfile } from "../interface";
+import { ProfileProps } from "../interface";
 import { MapContainer } from ".";
 import locationSvg from "../assets/location.svg";
 
-const Profile = ({
-  user,
-  company,
-}: {
-  user: UserProfile;
-  company: CompanyProps;
-}) => {
+const Profile = ({ user, company, type }: ProfileProps) => {
   const { configObj } = useFetch("configuration", APP_ID);
 
   return (
@@ -58,7 +52,9 @@ const Profile = ({
               </div>
             </div>
           </div>
-          <MapContainer />
+          <div className={`${type === "edit" ? "hidden" : "block"}`}>
+            <MapContainer />
+          </div>
         </div>
       </div>
     </div>

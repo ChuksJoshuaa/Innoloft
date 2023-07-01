@@ -71,3 +71,19 @@ export interface ProductProps {
   isError: boolean;
   userProfile: UserProfile;
 }
+
+export interface ProfileProps {
+  user: UserProfile;
+  company: CompanyProps;
+  type: string;
+}
+
+export type VideoProps = {
+  video: string;
+  type: string;
+};
+
+export type HeroProps = {
+  data: IIProps;
+  type: string;
+};
