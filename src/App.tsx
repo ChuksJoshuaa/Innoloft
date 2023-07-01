@@ -19,11 +19,11 @@ function App() {
     }
 
     if (yes) {
-      if (yes <= 800) {
+      if (yes <= 950) {
         dispatch(openSidebar(false));
       }
 
-      if (yes >= 800) {
+      if (yes >= 950) {
         dispatch(openSidebar(true));
       }
       return yes;

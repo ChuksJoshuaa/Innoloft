@@ -2,7 +2,7 @@ import { IIProps } from "../interface";
 
 const HeroSection = ({ data }: { data: IIProps }) => {
   return (
-    <div className="w-3/5 md:w-2/3">
+    <div className="w-full md:w-2/3">
       <div className="flex flex-col">
         <div
           className="bg-cover bg-no-repeat h-[300px]"

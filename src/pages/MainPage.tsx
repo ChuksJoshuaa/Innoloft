@@ -17,8 +17,8 @@ const MainPage = () => {
           </div>
         )}
         <div
-          className={`mt-[-12em] min-h-screen ${
-            isSidebarOpen ? "ml-72" : "flex-2"
+          className={`min-h-screen ${
+            isSidebarOpen ? "ml-72 mt-[-12em]" : "flex-2 mt-5"
           }`}
         >
           <div

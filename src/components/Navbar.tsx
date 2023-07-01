@@ -27,7 +27,7 @@ const Navbar = () => {
           <img
             src={innosoftSvg}
             alt="innoloft-logo"
-            className="ml-5 min-w-[140px] mt-3"
+            className={`${isSidebarOpen ? "ml-5" : "ml-1"} min-w-[140px] mt-3`}
           />
         </div>
         <div
