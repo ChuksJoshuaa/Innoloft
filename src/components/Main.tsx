@@ -3,7 +3,6 @@ import { CompanyProps, IIProps, UserProfile } from "../interface";
 import { PRODUCT_ID } from "../actionTypes";
 import useFetch from "../api";
 import { useAppSelector } from "../redux/hooks";
-import { Link } from "react-router-dom";
 
 const Main = ({ type }: { type: string }) => {
   const { productData } = useFetch("product", PRODUCT_ID);
