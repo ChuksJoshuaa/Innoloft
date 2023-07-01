@@ -12,12 +12,13 @@ html {
 
 body {
   margin: 0;
-  font-family: "Söhne", sans-serif;
+  font-family: "Open Sans", sans-serif;
   /* font-family: "Rajdhani", sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   padding-bottom: 100px;
+  background-color: #F9FAFB;
 }
 
 code {
@@ -88,7 +89,8 @@ a {
 
 
 .loader-container {
-    height: 100vh;
+    height: 100%;
+	min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,7 +98,15 @@ a {
     color: #ccc;
     line-height: 1.5;
     font-size: 1em;
+	overflow: hidden;
     background-color: #272e71;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 99999;
 }
 
 [class^="icon-"], [class*=" icon-"] {

@@ -1,4 +1,4 @@
-import { Header, HeroSection, Profile } from ".";
+import { Header, HeroSection, Profile, VideoView } from ".";
 import { CompanyProps, IIProps, UserProfile } from "../interface";
 import { PRODUCT_ID } from "../actionTypes";
 import useFetch from "../api";
@@ -22,6 +22,10 @@ const Main = () => {
           <HeroSection data={data} />
           <Profile user={user} company={company} />
         </div>
+      </div>
+
+      <div className="mt-5 bg-white rounded-lg h-auto border border-gray-200">
+        <VideoView video={data?.video} />
       </div>
     </div>
   );

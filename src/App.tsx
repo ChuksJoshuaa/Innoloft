@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoader(false);
-    }, 4000);
+    }, 3000);
   });
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function App() {
           <Loader />
         </>
       ) : (
-        <div className="bg-[#F9FAFB]">
+        <div>
           <Navbar />
           <ToastContainer />
           <Routes>

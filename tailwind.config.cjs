@@ -12,6 +12,9 @@ module.exports = {
 
       lg: "1440px",
       // => @media (min-width: 1440px) { ... }
+
+      // xl: "1600px",
+      // // => @media (min-width: 1440px) { ... }
     },
     fontFamily: {
       display: ["Open Sans", "sans-serif"],
