@@ -3,9 +3,11 @@ import { APP_ID } from "../actionTypes";
 import useFetch from "../api";
 import innosoftSvg from "../assets/innosoft.svg";
 import searchSvg from "../assets/search.svg";
+import { useAppSelector } from "../redux/hooks";
 
 const Navbar = () => {
   const { configObj } = useFetch("configuration", APP_ID);
+  const { isSidebarOpen } = useAppSelector((state) => state.product);
 
   return (
     <div
@@ -25,14 +27,18 @@ const Navbar = () => {
           <img
             src={innosoftSvg}
             alt="innoloft-logo"
-            className="ml-5 w-[140px] h-[26.286px] mt-3"
+            className="ml-5 min-w-[140px] mt-3"
           />
         </div>
-        <div className="ml-36 flex justify-between items-center w-full">
+        <div
+          className={`ml-20 md:ml-36 flex justify-between items-center w-full ${
+            isSidebarOpen ? "block" : "hidden"
+          }`}
+        >
           <div className="relative">
             <input
               placeholder="Enter interest, keyword, company name, etc."
-              className="w-[500px] h-[27px] rounded-[4px] bg-white outline-none px-3"
+              className="w-[250px] md:w-[500px] h-[27px] rounded-[4px] bg-white outline-none px-3"
             />
             <div className="absolute top-[50%] right-[10px] translate-y-[-50%]">
               <img

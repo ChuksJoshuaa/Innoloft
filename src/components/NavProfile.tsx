@@ -5,7 +5,6 @@ import { useAppSelector } from "../redux/hooks";
 
 const NavProfile = () => {
   const { userProfile } = useAppSelector((state) => state.product);
-  console.log(userProfile);
   return (
     <div className="flex justify-start items-center">
       <div>

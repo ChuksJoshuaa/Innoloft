@@ -2,15 +2,20 @@ import { SideInfo } from ".";
 import { PRODUCT_ID } from "../actionTypes";
 import useFetch from "../api";
 import { CompanyProps, UserProfile } from "../interface";
+import { useAppSelector } from "../redux/hooks";
 
 const Sidebar = () => {
   const { productData } = useFetch("product", PRODUCT_ID);
+  const { isSidebarOpen } = useAppSelector((state) => state.product);
 
   const user = productData?.user as UserProfile;
   const company = productData?.company as CompanyProps;
 
   return (
-    <div className="mt-5 ml-5" style={{ fontFamily: "Open Sans" }}>
+    <div
+      className={`mt-5 ml-5 ${isSidebarOpen ? "block" : "hidden"}`}
+      style={{ fontFamily: "Open Sans" }}
+    >
       <div className="flex justify-start items-center">
         <img
           src={user?.profilePicture}
