@@ -62,6 +62,7 @@ export interface IIProps {
   user: UserProfile;
   company: CompanyProps;
   businessModels: IProps[];
+  investmentEffort: string | null;
 }
 
 export interface ProductProps {

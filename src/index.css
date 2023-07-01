@@ -35,6 +35,16 @@ code {
 	flex-direction: column;
 }
 
+.offer-container {
+	display: flex;
+}
+
+@media screen and (max-width: 1380px) {
+	.offer-container {
+		flex-direction: column;
+	}
+}
+
 @media screen and (max-width: 1100px){
 	.main-container {
 		flex-direction: column;

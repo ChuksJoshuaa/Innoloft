@@ -1,10 +1,11 @@
-import { Header, HeroSection, Profile, VideoView } from ".";
+import { Header, HeroSection, OfferDetails, Profile, VideoView } from ".";
 import { CompanyProps, IIProps, UserProfile } from "../interface";
 import { PRODUCT_ID } from "../actionTypes";
 import useFetch from "../api";
 import { useAppSelector } from "../redux/hooks";
+import { Link } from "react-router-dom";
 
-const Main = () => {
+const Main = ({ type }: { type: string }) => {
   const { productData } = useFetch("product", PRODUCT_ID);
   const { isSidebarOpen } = useAppSelector((state) => state.product);
 
@@ -13,19 +14,31 @@ const Main = () => {
   const company = data?.company as CompanyProps;
 
   return (
-    <div className={`${isSidebarOpen ? "ml-5" : "ml-1"}`}>
+    <div className={`pb-[5em] ${isSidebarOpen ? "ml-5" : "ml-1"}`}>
       <div>
-        <Header type="main" />
+        <Header type={type} />
       </div>
-      <div className="mt-5 bg-white rounded-lg h-auto border border-gray-200">
-        <div className="main-container">
+      <Link className="mt-5" to={`/product/${PRODUCT_ID}`}>
+        <div className="main-container bg-white rounded-lg h-auto border border-gray-200 mt-5">
           <HeroSection data={data} />
           <Profile user={user} company={company} />
         </div>
+      </Link>
+
+      <div
+        className={`mt-5 bg-white rounded-lg h-auto border border-gray-200 ${
+          type === "main" ? "hidden" : "block"
+        }`}
+      >
+        <VideoView video={data?.video} />
       </div>
 
-      <div className="mt-5 bg-white rounded-lg h-auto border border-gray-200">
-        <VideoView video={data?.video} />
+      <div
+        className={`mt-5 bg-white rounded-lg h-auto border border-gray-200 ${
+          type === "main" ? "hidden" : "block"
+        }`}
+      >
+        <OfferDetails data={data} />
       </div>
     </div>
   );

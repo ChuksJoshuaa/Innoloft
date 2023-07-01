@@ -15,7 +15,7 @@ const VideoView = ({ video }: { video: string }) => {
       <h3 className="capitalize text-[16px] leading-[24px] font-semibold pt-2">
         video
       </h3>
-      <div className="h-[444px] pt-[4em] px-[3em]">
+      <div className="h-[444px] pt-[4em] px-[1em] md:px-[3em]">
         {id !== null ? (
           <>
             <iframe

@@ -9,6 +9,7 @@ import NavProfile from "./NavProfile";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
 import MapContainer from "./MapContainer";
+import OfferDetails from "./OfferDetails";
 
 export {
   Navbar,
@@ -22,4 +23,5 @@ export {
   Header,
   HeroSection,
   MapContainer,
+  OfferDetails,
 };

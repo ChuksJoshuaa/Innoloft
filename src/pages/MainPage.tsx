@@ -23,7 +23,7 @@ const MainPage = () => {
             className="h-screen"
             style={{ maxWidth: "1490px", margin: "0 auto", width: "100%" }}
           >
-            <Main />
+            <Main type="main" />
           </div>
         </div>
       </div>
