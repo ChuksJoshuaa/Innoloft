@@ -18,12 +18,15 @@ const Main = ({ type }: { type: string }) => {
       <div>
         <Header type={type} text={data?.name} />
       </div>
-      <Link className="mt-5" to={`/product/${PRODUCT_ID}`}>
+      <div
+        className="mt-5"
+        onClick={() => (window.location.href = `/product/${PRODUCT_ID}`)}
+      >
         <div className="main-container bg-white rounded-lg h-auto border border-gray-200 mt-5">
           <HeroSection data={data} />
           <Profile user={user} company={company} />
         </div>
-      </Link>
+      </div>
 
       <div
         className={`mt-5 bg-white rounded-lg h-auto border border-gray-200 ${

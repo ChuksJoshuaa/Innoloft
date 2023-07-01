@@ -1,5 +1,6 @@
 import dashboardSvg from "../assets/dashboard.svg";
 import arrowRightSvg from "../assets/arrowRight.svg";
+import { PRODUCT_ID } from "../actionTypes";
 
 const Header = ({ type, text }: { type: string; text: string }) => {
   return (
@@ -50,7 +51,12 @@ const Header = ({ type, text }: { type: string; text: string }) => {
                 </h3>
               </div>
 
-              <div className="rounded-[6px] bg-[#272E71] py-[5px] px-[10px] gap-[5px] flex items-center">
+              <div
+                className="rounded-[6px] bg-[#272E71] py-[5px] px-[10px] gap-[5px] flex items-center"
+                onClick={() =>
+                  (window.location.href = `/product/edit/${PRODUCT_ID}`)
+                }
+              >
                 <h3 className="text-white text-[14px] leading-[24px] font-normal">
                   Edit
                 </h3>

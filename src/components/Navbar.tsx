@@ -23,7 +23,10 @@ const Navbar = () => {
         className="flex flex-row justify-start items-center"
         style={{ maxWidth: "1700px", margin: "0 auto", width: "90%" }}
       >
-        <div className="w-72 h-[55px]">
+        <div
+          className="w-72 h-[55px]"
+          onClick={() => (window.location.href = "/")}
+        >
           <img
             src={innosoftSvg}
             alt="innoloft-logo"
