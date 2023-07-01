@@ -16,7 +16,7 @@ const Main = ({ type }: { type: string }) => {
   return (
     <div className={`pb-[5em] ${isSidebarOpen ? "ml-5" : "ml-1"}`}>
       <div>
-        <Header type={type} />
+        <Header type={type} text={data?.name} />
       </div>
       <Link className="mt-5" to={`/product/${PRODUCT_ID}`}>
         <div className="main-container bg-white rounded-lg h-auto border border-gray-200 mt-5">

@@ -5,6 +5,9 @@ import businessSvg from "../assets/business.svg";
 import costSvg from "../assets/costs.svg";
 
 const OfferDetails = ({ data }: { data: IIProps }) => {
+  if (Object.keys(data).length === 0) {
+    return;
+  }
   return (
     <div className="py-2 px-3">
       <h3 className="text-[16px] leading-[24px] font-semibold pt-2">
