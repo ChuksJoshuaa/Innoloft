@@ -8,20 +8,32 @@ const Header = ({ type, text }: { type: string; text: string }) => {
       <div>
         {type === "main" ? (
           <>
-            <div className="flex justify-start items-center">
-              <img
-                src={dashboardSvg}
-                alt="dashboard"
-                className="w-[20px] h-[20px]"
-              />
-              <img
-                src={arrowRightSvg}
-                alt="arrow-right"
-                className="w-[20px] h-[20px] mx-2"
-              />
-              <h3 className="font-normal text-[14px] md:text-[17px] leading-[20px] text-[#6B7280]">
-                Home
-              </h3>
+            <div className="flex justify-between items-center">
+              <div className="flex justify-start items-center">
+                <img
+                  src={dashboardSvg}
+                  alt="dashboard"
+                  className="w-[20px] h-[20px]"
+                />
+                <img
+                  src={arrowRightSvg}
+                  alt="arrow-right"
+                  className="w-[20px] h-[20px] mx-2"
+                />
+                <h3 className="font-normal text-[14px] md:text-[17px] leading-[20px] text-[#6B7280]">
+                  Home
+                </h3>
+              </div>
+              <div
+                className="rounded-[6px] bg-[#272E71] py-[5px] px-[10px] gap-[5px] flex items-center"
+                onClick={() =>
+                  (window.location.href = `/product/${PRODUCT_ID}`)
+                }
+              >
+                <h3 className="text-white text-[14px] leading-[24px] font-normal">
+                  View offer
+                </h3>
+              </div>
             </div>
           </>
         ) : type === "single" ? (
