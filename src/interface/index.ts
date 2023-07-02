@@ -70,6 +70,8 @@ export interface ProductProps {
   isLoading: boolean;
   isError: boolean;
   userProfile: UserProfile;
+  videoUrl: string;
+  trlId: string;
 }
 
 export interface ProfileProps {

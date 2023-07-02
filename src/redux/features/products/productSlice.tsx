@@ -6,6 +6,8 @@ const initialState: ProductProps = {
   isError: false,
   isSidebarOpen: true,
   userProfile: {} as UserProfile,
+  videoUrl: "",
+  trlId: "",
 };
 
 export const productSlice = createSlice({
@@ -27,10 +29,24 @@ export const productSlice = createSlice({
     setUserProfile: (state, action) => {
       state.userProfile = action.payload;
     },
+
+    setTrl: (state, action) => {
+      state.trlId = action.payload;
+    },
+
+    setVideoUrl: (state, action) => {
+      state.videoUrl = action.payload;
+    },
   },
 });
 
-export const { setLoader, setError, openSidebar, setUserProfile } =
-  productSlice.actions;
+export const {
+  setLoader,
+  setError,
+  openSidebar,
+  setUserProfile,
+  setTrl,
+  setVideoUrl,
+} = productSlice.actions;
 
 export default productSlice.reducer;

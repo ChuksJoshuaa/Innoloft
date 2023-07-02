@@ -4,26 +4,28 @@ import trlSvg from "../assets/trl.svg";
 import businessSvg from "../assets/business.svg";
 import costSvg from "../assets/costs.svg";
 import useFetch from "../api";
-import { useState, useEffect } from "react";
+import { useRef } from "react";
+import { useAppDispatch } from "../redux/hooks";
+import { setTrl } from "../redux/features/products/productSlice";
 
 const OfferDetails = ({ data, type }: { data: IIProps; type: string }) => {
   const { trlData } = useFetch("trl", "");
+  const dispatch = useAppDispatch();
+  const trlRef = useRef<HTMLSelectElement>(null);
 
   if (Object.keys(data).length === 0) {
     return;
   }
 
-  // const [trlId, setTrlId] = useState("");
-
-  useEffect(() => {
-    let id = data?.trl?.id;
-    if (data) {
-      // setTrlId(id);
+  const handleTrl = () => {
+    if (trlRef.current) {
+      let value = trlRef.current.value;
+      if (!value) {
+        dispatch(setTrl(data?.trl?.id));
+      } else {
+        dispatch(setTrl(value));
+      }
     }
-  }, []);
-
-  const handleTrl = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // setTrlId(e.target.value);
   };
 
   return (
@@ -40,7 +42,7 @@ const OfferDetails = ({ data, type }: { data: IIProps; type: string }) => {
           <select
             className="mb-3 block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
             onChange={handleTrl}
-            // value={trlId}
+            ref={trlRef}
           >
             {trlData.map((option, index) => (
               <option key={index} value={option.id}>

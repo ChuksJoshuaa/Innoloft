@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { VideoProps } from "../interface";
+import { useAppDispatch } from "../redux/hooks";
+import { setVideoUrl } from "../redux/features/products/productSlice";
 
 const VideoView = ({ video, type }: VideoProps) => {
   const [id, setId] = useState<null | string>(null);
+  const dispatch = useAppDispatch();
   const [videoLink, setVideoLink] = useState("");
   useEffect(() => {
     setVideoLink(video);
@@ -12,6 +15,12 @@ const VideoView = ({ video, type }: VideoProps) => {
       setId(videoId as string | null);
     }
   }, [video]);
+
+  const handleVideo = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+    setVideoLink(value);
+    dispatch(setVideoUrl(value));
+  };
 
   return (
     <div className="py-2 px-3">
@@ -25,7 +34,7 @@ const VideoView = ({ video, type }: VideoProps) => {
             className="w-full border border-gray-400 px-3 py-1 outline-none rounded-md"
             placeholder="Add a youtube or vimeo link"
             value={videoLink}
-            onChange={(e) => setVideoLink(e.target.value)}
+            onChange={handleVideo}
           />
         </div>
       ) : (
