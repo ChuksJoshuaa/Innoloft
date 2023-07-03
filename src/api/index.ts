@@ -4,6 +4,7 @@ import axios from "axios";
 import { LIVE_BASE_URL } from "../actionTypes";
 import { setUserProfile } from "../redux/features/products/productSlice";
 import { useAppDispatch } from "../redux/hooks";
+import { ConfigRawData, ProductRawData, TrlRawData } from "../utils/data";
 
 const useFetch = (endpoint: FetchProps["endpoint"], key: FetchProps["key"]) => {
   const [isConfigLoading, setIsConfigLoading] = useState(false);
@@ -24,6 +25,7 @@ const useFetch = (endpoint: FetchProps["endpoint"], key: FetchProps["key"]) => {
       let data = response.data;
       setConfigObj(data);
     } catch (error) {
+      setConfigObj(ConfigRawData);
       console.log(error);
       setIsConfigError(true);
     } finally {
@@ -38,6 +40,7 @@ const useFetch = (endpoint: FetchProps["endpoint"], key: FetchProps["key"]) => {
       let data = response.data;
       setTrlData(data);
     } catch (error) {
+      setTrlData(TrlRawData);
       console.log(error);
       setIsTrlError(true);
     } finally {
@@ -53,6 +56,7 @@ const useFetch = (endpoint: FetchProps["endpoint"], key: FetchProps["key"]) => {
       setProductData(data);
       dispatch(setUserProfile(data.user));
     } catch (error) {
+      setProductData(ProductRawData);
       console.log(error);
       setIsProductError(true);
     } finally {

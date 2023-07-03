@@ -11,7 +11,7 @@ export interface ConfigProps {
 }
 
 export type TrlProps = {
-  id: string;
+  id: string | number;
   name: string;
   description: string | null;
 };
@@ -34,7 +34,7 @@ export interface CompanyProps {
     street: string;
     house: string;
     zipCode: string;
-    longitute: string;
+    longitude: string;
     latitude: string;
   };
 }
