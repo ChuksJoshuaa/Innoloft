@@ -46,7 +46,7 @@ const HeroSection = ({ data, type }: HeroProps) => {
     const payload = {
       trl: findTrl,
       video: videoCheckUrl,
-      title: title,
+      name: title,
       description: description,
     };
 
@@ -54,7 +54,7 @@ const HeroSection = ({ data, type }: HeroProps) => {
       ...data,
       trl: findTrl as TrlProps,
       video: videoCheckUrl,
-      title: title,
+      name: title,
       description: description,
     };
 
