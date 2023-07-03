@@ -72,6 +72,7 @@ export interface ProductProps {
   userProfile: UserProfile;
   videoUrl: string;
   trlId: string;
+  storedTrl: TrlProps[];
 }
 
 export interface ProfileProps {

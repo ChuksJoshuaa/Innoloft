@@ -1,4 +1,4 @@
-import { HeroProps } from "../interface";
+import { HeroProps, TrlProps } from "../interface";
 import patentSvg from "../assets/patent.svg";
 import { useState } from "react";
 import ReactQuill from "react-quill";
@@ -8,6 +8,7 @@ import { Toast, Toaster } from "../utils/Toast";
 import { useAppSelector } from "../redux/hooks";
 import axios from "axios";
 import { LIVE_BASE_URL, PRODUCT_ID } from "../actionTypes";
+import { saveToLocalStorage } from "../utils/localStorage";
 
 const HeroSection = ({ data, type }: HeroProps) => {
   if (Object.keys(data).length === 0) {
@@ -17,7 +18,9 @@ const HeroSection = ({ data, type }: HeroProps) => {
   const [title, setTitle] = useState(data?.name);
   const [description, setDescription] = useState(data?.description);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { trlId, videoUrl } = useAppSelector((state) => state.product);
+  const { trlId, videoUrl, storedTrl } = useAppSelector(
+    (state) => state.product
+  );
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -36,8 +39,20 @@ const HeroSection = ({ data, type }: HeroProps) => {
     const trlCheckId = !trlId ? data?.trl?.id : trlId;
     const videoCheckUrl = !videoUrl ? data?.video : videoUrl;
 
+    let findTrl = storedTrl.find(
+      (val: TrlProps) => val.id === trlCheckId.toString()
+    );
+
     const payload = {
-      trl: trlCheckId,
+      trl: findTrl,
+      video: videoCheckUrl,
+      title: title,
+      description: description,
+    };
+
+    let dataPayload = {
+      ...data,
+      trl: findTrl as TrlProps,
       video: videoCheckUrl,
       title: title,
       description: description,
@@ -53,7 +68,11 @@ const HeroSection = ({ data, type }: HeroProps) => {
       Toast("Update successful");
       window.location.href = "/";
     } catch (error) {
-      Toaster("An error occurred");
+      saveToLocalStorage(dataPayload);
+      Toast("Update successful");
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 300);
       console.log(error);
     } finally {
       setIsSubmitting(false);
@@ -80,7 +99,6 @@ const HeroSection = ({ data, type }: HeroProps) => {
               <input
                 type="url"
                 className="w-full border border-gray-400 px-3 py-1 outline-none rounded-md mb-4"
-                // placeholder="Enter title..."
                 value={title}
                 onChange={handleTitle}
               />
@@ -105,15 +123,21 @@ const HeroSection = ({ data, type }: HeroProps) => {
               <div>Cancel</div>
               <div
                 className={`py-[5px] px-[10px] gap-[5px] flex items-center rounded-[6px] mx-3`}
-                style={{ background: "rgba(39, 46, 113, 0.50)" }}
+                style={{
+                  background: `${
+                    isSubmitting
+                      ? "rgba(39, 46, 113, 0.50)"
+                      : "rgb(39, 46, 113)"
+                  }`,
+                }}
                 onClick={handleSubmit}
               >
                 <img
                   src={arrowCheck}
                   alt="arrow-check"
-                  className="w-[16px] h-[16px]"
+                  className="w-[13px] h-[13px]"
                 />
-                <h3 className="text-gray-50 text-[12px]">
+                <h3 className="text-gray-50 text-[12px] px-2">
                   {isSubmitting ? "saving" : "save"}
                 </h3>
               </div>

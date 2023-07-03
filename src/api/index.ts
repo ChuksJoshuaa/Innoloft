@@ -2,9 +2,13 @@ import { ConfigProps, FetchProps, IIProps, TrlProps } from "../interface";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { LIVE_BASE_URL } from "../actionTypes";
-import { setUserProfile } from "../redux/features/products/productSlice";
+import {
+  setStoredTrl,
+  setUserProfile,
+} from "../redux/features/products/productSlice";
 import { useAppDispatch } from "../redux/hooks";
 import { ConfigRawData, ProductRawData, TrlRawData } from "../utils/data";
+import { checkLocal } from "../utils/localStorage";
 
 const useFetch = (endpoint: FetchProps["endpoint"], key: FetchProps["key"]) => {
   const [isConfigLoading, setIsConfigLoading] = useState(false);
@@ -40,6 +44,7 @@ const useFetch = (endpoint: FetchProps["endpoint"], key: FetchProps["key"]) => {
       let data = response.data;
       setTrlData(data);
     } catch (error) {
+      dispatch(setStoredTrl(TrlRawData));
       setTrlData(TrlRawData);
       console.log(error);
       setIsTrlError(true);
@@ -56,7 +61,7 @@ const useFetch = (endpoint: FetchProps["endpoint"], key: FetchProps["key"]) => {
       setProductData(data);
       dispatch(setUserProfile(data.user));
     } catch (error) {
-      setProductData(ProductRawData);
+      setProductData(checkLocal(ProductRawData));
       console.log(error);
       setIsProductError(true);
     } finally {
@@ -76,6 +81,7 @@ const useFetch = (endpoint: FetchProps["endpoint"], key: FetchProps["key"]) => {
     isTrlError,
     isTrlLoading,
     trlData,
+    fetchProduct,
     productData,
     isProductLoading,
     isProductError,

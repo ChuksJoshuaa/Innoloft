@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductProps, UserProfile } from "../../../interface";
+import { TrlRawData } from "../../../utils/data";
 
 const initialState: ProductProps = {
   isLoading: false,
@@ -8,6 +9,7 @@ const initialState: ProductProps = {
   userProfile: {} as UserProfile,
   videoUrl: "",
   trlId: "",
+  storedTrl: TrlRawData,
 };
 
 export const productSlice = createSlice({
@@ -37,6 +39,10 @@ export const productSlice = createSlice({
     setVideoUrl: (state, action) => {
       state.videoUrl = action.payload;
     },
+
+    setStoredTrl: (state, action) => {
+      state.storedTrl = action.payload;
+    },
   },
 });
 
@@ -47,6 +53,7 @@ export const {
   setUserProfile,
   setTrl,
   setVideoUrl,
+  setStoredTrl,
 } = productSlice.actions;
 
 export default productSlice.reducer;
