@@ -120,7 +120,14 @@ const HeroSection = ({ data, type }: HeroProps) => {
         {type === "edit" ? (
           <>
             <div className="flex justify-end items-end pb-3">
-              <div>Cancel</div>
+              <div
+                className="text-md font-medium text-gray-600"
+                onClick={() =>
+                  (window.location.href = `/product/${PRODUCT_ID}`)
+                }
+              >
+                Cancel
+              </div>
               <div
                 className={`py-[5px] px-[10px] gap-[5px] flex items-center rounded-[6px] mx-3`}
                 style={{
