@@ -43,8 +43,9 @@ const HeroSection = ({ data, type }: HeroProps) => {
       description: description,
     };
 
+    setIsSubmitting(true);
+
     try {
-      setIsSubmitting(true);
       const response = await axios.put(
         `${LIVE_BASE_URL}/product/${PRODUCT_ID}`,
         payload
